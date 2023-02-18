@@ -1,0 +1,70 @@
+extends layout
+include _forms.pug
+
+block header_meta
+	- var content_title= 'РЕДАКТИРОВАТЬ CV'
+
+block header_include
+	- var include_libs_css = ['font-awesome.css', 'wysiwyg-editor.min.css']
+	- var include_css = ['add.css']
+	- var include_libs_js = ['wysiwyg.min.js', 'wysiwyg-editor.min.js']
+	- var include_js = ['editor.js', 'add.js']
+
+block sub_menu
+	a.sub_item.back_link(href='/admin') Назад
+	span.sub_item.toggle_eng Перевод
+	a.sub_item(href='/office', target='_blank') Превью
+	.sub_right_block
+		input.form_cancel(type='submit', value='Отменить')
+		input.form_submit(type='submit', value='Сохранить')
+
+block content
+	.form_block
+		.title= content_title
+		form(action='', method='post', enctype="multipart/form-data")
+			.form_title Портфолио (ссылка):
+			input(type='text', name='link', value= content.link)
+			.form_title Адрес:
+			.form_language-group
+				span.form_title RU
+				input.ru(type='text', name='adress[ru]', value= content.adress_ru)
+			.form_language-group.additional
+				span.form_title EN
+				input.en(type='text', name='adress[en]', value= content.adress_en)
+			.form_language-group.additional
+				span.form_title FR
+				input.en(type='text', name='adress[fr]', value= content.adress_fr)
+			.form_language-group.additional
+				span.form_title DE
+				input.en(type='text', name='adress[de]', value= content.adress_de)
+
+			.form_title Текст CV:
+			.content
+				.form_language-group
+					span.form_title RU
+					textarea.ru.editor(name='cv[ru]')= content.cv_ru
+				.form_language-group.additional
+					span.form_title EN
+					textarea.en.editor(name='cv[en]')= content.cv_en
+				.form_language-group.additional
+					span.form_title FR
+					textarea.en.editor(name='cv[fr]')= content.cv_fr
+				.form_language-group.additional
+					span.form_title DE
+					textarea.en.editor(name='cv[de]')= content.cv_de
+			.form_title Изображение:
+			+form_single_file('image', content)(accept='image/jpeg,image/png,image/gif')
+			.form_title Текст CV (дополнительно):
+			.content(style='overflow: hidden;')
+				.form_language-group
+					span.form_title RU
+					textarea.ru.editor(name='desc[ru]')= content.desc_ru
+				.form_language-group.additional
+					span.form_title EN
+					textarea.en.editor(name='desc[en]')= content.desc_en
+				.form_language-group.additional
+					span.form_title FR
+					textarea.en.editor(name='desc[fr]')= content.desc_fr
+				.form_language-group.additional
+					span.form_title DE
+					textarea.en.editor(name='desc[de]')= content.desc_de
