@@ -51,12 +51,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ponyspy/kosmos.git"
+    "url": "https://github.com/Code-Elements/kosmos.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ponyspy/kosmos/issues"
+    "url": "https://github.com/Code-Elements/kosmos/issues"
   },
-  "homepage": "https://github.com/ponyspy/kosmos"
+  "homepage": "https://github.com/Code-Elements/kosmos"
 }
