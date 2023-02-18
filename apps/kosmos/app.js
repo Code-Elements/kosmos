@@ -7,7 +7,7 @@ var express = require('express'),
 		cookieParser = require('cookie-parser'),
 		session = require('express-session'),
 			app = express();
-
+			require('dotenv').config();
 var MongoStore = require('connect-mongo');
 var i18n = require('i18n');
 
